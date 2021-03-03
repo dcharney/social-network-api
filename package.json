@@ -1,0 +1,25 @@
+{
+  "name": "social-network",
+  "version": "1.0.0",
+  "description": "An API for a social network web application where users can share their thoughts, react to friends’ thoughts, and create a friend list.",
+  "main": "server.js",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^5.11.18"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "jest",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dcharney/social-network-api.git"
+  },
+  "author": "dcharney",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dcharney/social-network-api/issues"
+  },
+  "homepage": "https://github.com/dcharney/social-network-api#readme"
+}
