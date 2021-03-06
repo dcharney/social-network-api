@@ -1,4 +1,3 @@
-const { ObjectID } = require('bson');
 const { Schema, model, Types } = require('mongoose');
 const dateFormat = require('../utils/dateFormat');
 
@@ -47,7 +46,7 @@ const ThoughtSchema = new Schema(
             type: String,
             required: true
         },
-        reactions: [reactionSchema]
+        reactions: [ReactionSchema]
     },
     {
         toJSON: {

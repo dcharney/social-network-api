@@ -13,6 +13,10 @@ const userController = {
                 path: 'friends',
                 select: '-__v'
             })
+            .populate({
+                path: 'thoughts',
+                select: '-__v'
+            })
             .then(dbUserData => {
                 if (!dbUserData) {
                     res.status(404).json({ message: "Invalid user id"});
@@ -69,7 +73,7 @@ const userController = {
                 }
                 res.json(dbUserData);
             })
-            .catch(err => res.json(err));
+            .catch(err => res.status(400).json(err));
     },
     // remove friend from friends list
     removeFriend({ params }, res) {
@@ -84,7 +88,7 @@ const userController = {
                 }
                 res.json(dbUserData);
             })
-            .catch(err => res.json(err));
+            .catch(err => res.status(400).json(err));
     } 
 }
 
