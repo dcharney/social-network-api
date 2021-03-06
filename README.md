@@ -36,6 +36,10 @@ start serving using `npm start`
 
 ![starting server](media/start-server.gif)
 
+the following gif shows the user routes being tested user Insomnia Core
+
+![gif demo-ing user routes](media/user-routes.gif)
+
 ###  
 
 ## License
