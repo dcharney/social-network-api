@@ -1,11 +1,6 @@
 const { User } = require('../models');
 
 const userController = {
-    // get all users
-    // get a single user by is and populate thought and friend data
-    // post new user
-    //put update user by id
-    // delete user by id
     //BONUS: remove user thoughts when deleted
     getAllUsers(req, res) {
         User.find({})
@@ -14,6 +9,10 @@ const userController = {
     },
     getUserById({ params }, res) {
         User.findOne({ _id: params.id })
+            .populate({
+                path: 'friends',
+                select: '-__v'
+            })
             .then(dbUserData => {
                 if (!dbUserData) {
                     res.status(404).json({ message: "Invalid user id"});
@@ -56,7 +55,37 @@ const userController = {
                 res.json(dbUserData);
             })
             .catch(err => res.status(400).json(err));
-    }
+    },
+    // add friend to friends list
+    addFriend({ params }, res) {
+        User.findOneAndUpdate(
+            { _id: params.userId },
+            { $push: { friends: params.friendId } },
+            { new: true}
+        )
+            .then(dbUserData => {
+                if (!dbUserData) {
+                    res.status(404).json({ message: 'invalid user id' })
+                }
+                res.json(dbUserData);
+            })
+            .catch(err => res.json(err));
+    },
+    // remove friend from friends list
+    removeFriend({ params }, res) {
+        User.findOneAndUpdate(
+            { _id: params.userId },
+            { $pull: { friends:params.friendId } },
+            { new: true}
+        )
+            .then(dbUserData => {
+                if (!dbUserData) {
+                    res.status(404).json({ message: 'invalid user id' })
+                }
+                res.json(dbUserData);
+            })
+            .catch(err => res.json(err));
+    } 
 }
 
 module.exports = userController;

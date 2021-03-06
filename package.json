@@ -12,7 +12,8 @@
   },
   "scripts": {
     "test": "jest",
-    "start": "node server.js"
+    "start": "node server.js",
+    "serve": "nodemon server.js"
   },
   "repository": {
     "type": "git",
