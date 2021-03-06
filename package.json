@@ -20,7 +20,7 @@
     "url": "git+https://github.com/dcharney/social-network-api.git"
   },
   "author": "dcharney",
-  "license": "ISC",
+  "license": "Unlicense License",
   "bugs": {
     "url": "https://github.com/dcharney/social-network-api/issues"
   },
