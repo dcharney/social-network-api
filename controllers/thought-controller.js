@@ -91,7 +91,6 @@ const thoughtController = {
             .then(dbThoughtData => res.json(dbThoughtData))
             .catch(err => res.status(400).json(err));
     },
-    getThoughtById() {},
     createThought({ body }, res) {
         const { thoughtText, username, userId } = body;
         Thought.create({ thoughtText, username })
@@ -111,8 +110,43 @@ const thoughtController = {
             })
             .catch(err => res.status(400).json(err));
     },
-    updateThought() {},
-    deleteThought() {},
+    getThoughtById({ params }, res) {
+        Thought.findOne({ _id: params.thoughtId })
+            .then(dbThoughtData => {
+                if (!dbThoughtData) {
+                    res.status(404).json({ message: 'invalid thought id'});
+                    return;
+                }
+                res.json(dbThoughtData);
+            })
+            .catch(err => res.status(400).json(err));
+    },
+    updateThought({ params, body }, res) {
+        Thought.findOneAndUpdate(
+            { _id: params.thoughtId },
+            body,
+            { new: true, runValidators: true }
+        )
+            .then(dbThoughtData => {
+                if (!dbThoughtData) {
+                    res.status(404).json({ message: 'invalid thought id'});
+                    return;
+                }
+                res.json(dbThoughtData);
+            })
+            .catch(err => res.status(400).json(err));
+    },
+    deleteThought({ params }, res) {
+        Thought.findOneAndDelete({ _id: params.thoughtId })
+            .then(dbThoughtData => {
+                if (!dbThoughtData) {
+                    res.status(404).json({ message: 'invalid thought id'});
+                    return;
+                }
+                res.json(dbThoughtData);
+            })
+            .catch(err => res.status(400).json(err));
+    },
     addReaction() {},
     removeReaction() {}
 }
