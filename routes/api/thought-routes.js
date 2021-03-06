@@ -29,7 +29,7 @@ router
 
 // Set up DELETE friend at /api/thoughts/:thoughtId/reactions/:readtionId
 router
-    .route('/:thoughtId/reactions/:readtionId')
+    .route('/:thoughtId/reactions/:reactionId')
     .delete(removeReaction);
 
 module.exports = router;
