@@ -32,6 +32,10 @@ To use this app, simply clone the repository, install dependencies (npm install)
 
 This reposoitory only consists of a fully developed **back-end** for a social networking application. A third party software, such as Insomnia Core as shown in the video walkthrough, is required to test the api routes. 
 
+start serving using `npm start`
+
+![starting server](media/start-server.gif)
+
 ###  
 
 ## License
