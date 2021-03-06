@@ -1,4 +1,5 @@
-const { User } = require('../models');
+const { User, Thought } = require('../models');
+const { deleteThought } = require('./thought-controller');
 
 const userController = {
     //BONUS: remove user thoughts when deleted
@@ -51,12 +52,14 @@ const userController = {
     // deleteUser
     deleteUser({ params }, res) {
         User.findOneAndDelete({ _id: params.id })
-            .then(dbUserData => {
-                if (!dbUserData) {
-                    res.status(404).json({ message: "invalid user id"});
-                    return;
+            .then(deletedUserData => {
+                if (!deletedUserData) {
+                    return res.status(404).json({ message: "invalid user id"});
                 }
-                res.json(dbUserData);
+                res.json(deletedUserData);
+                console.log("=============");
+                console.log(deletedUserData.thoughts)
+                return Thought.deleteMany({ _id: {$in:deletedUserData.thoughts} });
             })
             .catch(err => res.status(400).json(err));
     },
