@@ -67,7 +67,7 @@ All data tied to a specific user will be displayed when you get a user from thei
 ![deleting a user](media/delete-user.gif)
 
 
-A full walkthrough video can be viewed [here](https://drive.google.com/file/d/1Zw7dTrUV09jI7NnII_37cGO8XcGC8qQ7/preview).
+A full walkthrough video can be viewed [here](https://drive.google.com/file/d/1Zw7dTrUV09jI7NnII_37cGO8XcGC8qQ7/view?usp=sharing).
 
 ## License
 
