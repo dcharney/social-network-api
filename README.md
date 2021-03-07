@@ -69,8 +69,6 @@ All data tied to a specific user will be displayed when you get a user from thei
 
 A full walkthrough video can be viewed [here](https://drive.google.com/file/d/1Zw7dTrUV09jI7NnII_37cGO8XcGC8qQ7/preview).
 
-<iframe src="https://drive.google.com/file/d/1Zw7dTrUV09jI7NnII_37cGO8XcGC8qQ7/preview" width="640" height="480"></iframe>
-
 ## License
 
 This project is in the public domain and free for any and all uses! More details on this (un)licensing statement can be found [here](https://unlicense.org/).
